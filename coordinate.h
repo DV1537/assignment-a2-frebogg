@@ -12,8 +12,6 @@ class Coordinate
     Coordinate(double xCord, double yCord);
     double GetX();
     double GetY();
-    void SetX(double xCord);
-    void SetY(double yCord);
 };
 
 #endif

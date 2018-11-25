@@ -6,7 +6,6 @@
 #include <cmath>
 #include "coordinate.h"
 
-//using namespace std; // Temp
 class Shape
 {
 protected:
@@ -17,7 +16,7 @@ public:
   virtual double Area() = 0;
   virtual double Circumference() = 0;
   virtual Coordinate Position() = 0;
-  bool IsConvex();
+  virtual bool IsConvex() = 0;
   double Distance(Shape &s);
 };
 

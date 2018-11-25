@@ -5,11 +5,6 @@ std::string Shape::GetType() const
   return shapeType;
 }
 
-bool Shape::IsConvex()
-{
-  return true;
-}
-
 double Shape::Distance(Shape &s)
 {
   Coordinate firstCord = this->Position();

@@ -14,26 +14,38 @@ Polygon::Polygon(const Coordinate sentCords[], const int amountOfCoordinates)
     {
         cords[i] = sentCords[i];
     }
+    this->amountOfCoordinates = amountOfCoordinates;
 }
 
 double Polygon::Area()
 {
-    std::cout << "AREEEO: " << cords[3].GetX() << '\n';
+    // Not finished
     return -1;
 }
-double Polygon ::Circumference()
+double Polygon::Circumference()
 {
+    // Not finished
     return 0;
 }
 Coordinate Polygon::Position()
 {
-    Coordinate centerCord;
-    centerCord = cords[0];
+    double x = 0;
+    double y = 0;
+    for (int i = 0; i < amountOfCoordinates; i++)
+    {
+        x += cords[i].GetX();
+        y += cords[i].GetY();
+    }
+
+    double centerX = (x / amountOfCoordinates);
+    double centerY = (y / amountOfCoordinates);
+    Coordinate centerCord(centerX, centerY);
 
     return centerCord;
 }
 
-bool IsConvex()
+bool Polygon::IsConvex()
 {
-    return true; // Ej klar
+    // Not finished
+    return true;
 }

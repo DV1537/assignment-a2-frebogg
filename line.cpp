@@ -1,9 +1,11 @@
 #include "line.h"
-Line::Line(const Coordinate c1, const Coordinate c2)
+Line::Line(const Coordinate sentCords[])
 {
     shapeType = name;
-    cords[0] = c1;
-    cords[1] = c2;
+    for (int i = 0; i < amountOfCoordinates; i++)
+    {
+        cords[i] = sentCords[i];
+    }
 }
 
 double Line::Area()
@@ -18,12 +20,17 @@ double Line::Circumference()
 
 Coordinate Line::Position()
 {
-    Coordinate centerCord;
-    double centerX = (cords[0].GetX() + cords[1].GetX()) / 2;
-    double centerY = (cords[0].GetY() + cords[1].GetY()) / 2;
+    double totX = 0;
+    double totY = 0;
+    for (int i = 0; i < amountOfCoordinates; i++)
+    {
+        totX += cords[i].GetX();
+        totY += cords[i].GetY();
+    }
+    double centerX = (totX) / amountOfCoordinates;
+    double centerY = (totY) / amountOfCoordinates;
 
-    centerCord.SetX(centerX);
-    centerCord.SetY(centerY);
+    Coordinate centerCord(centerX, centerY);
     return centerCord;
 }
 

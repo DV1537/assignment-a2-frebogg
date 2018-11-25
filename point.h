@@ -13,6 +13,6 @@ public:
   double Area() override;
   double Circumference() override;
   Coordinate Position() override;
-  bool IsConvex();
+  bool IsConvex() override;
 };
 #endif
