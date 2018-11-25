@@ -4,9 +4,7 @@
 #include "triangle.h"
 #include "polygon.h"
 
-// Checks if text contains characters '-' or '.' and is a real (valid) number
-bool ValidNumber(std::string inputToCheck);
-
+bool ValidNumber(std::string inputToCheck); // Checks if text contains characters '-' or '.' and is a real (valid) number
 double RoundThreeDecimals(double nrToRound);
 
 int main(int argc, const char *argv[])
@@ -22,9 +20,10 @@ int main(int argc, const char *argv[])
             int amountOfCoordinates = 0;
             int arraySize = 0;
 
-            std::string line = "";
             double cordX = 0.0;
             double cordY = 0.0;
+
+            std::string line = "";
 
             Coordinate *cordArr = new Coordinate[arraySize];
 
@@ -35,12 +34,13 @@ int main(int argc, const char *argv[])
                     coordCounter++;
                     double readNr = stod(line); // Converts text to double
 
-                    // For every 2nd read number we add a coordinate to the cord array
+                    // For every 2nd number we read add a coordinate to the cord array
                     if ((coordCounter % 2) == 0)
                     {
                         cordY = readNr;
 
                         arraySize++;
+
                         Coordinate tempCord(cordX, cordY);
                         Coordinate *tempArray = new Coordinate[arraySize];
 
@@ -63,7 +63,7 @@ int main(int argc, const char *argv[])
                 }
                 else
                 {
-                    return -1;
+                    return 1;
                 }
             }
 
@@ -73,22 +73,22 @@ int main(int argc, const char *argv[])
                 if (amountOfCoordinates == 1)
                 {
                     Point p(cordArr[0]);
-                    std::cout << RoundThreeDecimals(p.Area()) << '\n';
+                    std::cout << RoundThreeDecimals(p.Area());
                 }
                 else if (amountOfCoordinates == 2)
                 {
                     Line l(cordArr);
-                    std::cout << RoundThreeDecimals(l.Area()) << '\n';
+                    std::cout << RoundThreeDecimals(l.Area());
                 }
                 else if (amountOfCoordinates == 3)
                 {
                     Triangle tr(cordArr);
-                    std::cout << RoundThreeDecimals(tr.Area()) << '\n';
+                    std::cout << RoundThreeDecimals(tr.Area());
                 }
                 else
                 {
                     Polygon pol(cordArr, amountOfCoordinates);
-                    std::cout << RoundThreeDecimals(pol.Area()) << '\n';
+                    std::cout << RoundThreeDecimals(pol.Area());
                 }
             }
             else
@@ -100,7 +100,6 @@ int main(int argc, const char *argv[])
             cordArr = nullptr;
             myReadFile.close();
 
-            getchar();
             return 0;
         }
         else
