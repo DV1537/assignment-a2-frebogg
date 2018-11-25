@@ -26,20 +26,20 @@ double Polygon::Area()
         Solution found here : https://www.geeksforgeeks.org/area-of-a-polygon-with-given-n-ordered-vertices/
         */
         double area = 0;
-
-        // Calculate value of shoelace formula
         int j = amountOfCoordinates - 1;
+
         for (int i = 0; i < amountOfCoordinates; i++)
         {
             area += (cords[j].GetX() + cords[i].GetX()) * (cords[j].GetY() - cords[i].GetY());
             j = i; // j is previous vertex to i
         }
-        return fabs(area / 2.0);
+        area = fabs(area / 2.0);
+        if (area > 0)
+        {
+            return area;
+        }
     }
-    else
-    {
-        return -1;
-    }
+    return -1;
 }
 // Note: this function only works if the vertices are properly ordered.
 double Polygon::Circumference()
